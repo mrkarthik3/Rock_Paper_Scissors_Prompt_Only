@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rock Paper Scissors - Prompt Only</title>
+    <title>Rock, Paper & Scissors Game</title>
 </head>
 <body>
-    <h3>Rock, Paper & Scissors Game</h3>
+    <h3>Rock, Paper & Scissors Game - Prompt Based</h3>
 
-    <p>Please open the browser console to see the game in action. <div>I've put alerts only for the final message.</div></p>
+    <p>Please open the browser console to see the game in action. <div>I've put alerts only for the final message.</div> <div>Incorrect inputs are penalized with 1 point.</div></p>
     <script>
         function computerPlay(){
             let randnum = Math.floor(Math.random()*10);
@@ -44,13 +44,12 @@
 
         
         function humanPlay() {
-            let choice = "dummy"; // Just to bypass choice = null error message! :P
-            choice = prompt("Please enter your choice - Rock, Paper or Scissors"); 
+            let choice = prompt("Please enter your choice - Rock, Paper or Scissors"); 
             choice = choice.toUpperCase(); 
             // console.log(`fun level: ${choice}`);
             if (choice != "ROCK" && choice != "PAPER" && choice != "SCISSORS") {
-                console.log("incorrect input! Try again.");
-                
+                console.log("You are penalized with 1 point for incorrect input!.");
+                computerScore = computerScore + 1;
                // humanPlay();
             }
             
@@ -133,15 +132,21 @@
                 console.log(`Player Score : ${playerScore} & Computer Score: ${computerScore}`);
 
                 if(playerScore > computerScore) {
+                    console.log(`Player won! Player Score = ${playerScore} & Computer Score = ${computerScore}`);
                     alert(`Player won! Player Score = ${playerScore} & Computer Score = ${computerScore}`);
+
                     
                 }
                 else if (playerScore < computerScore) {
+                    console.log(`Computer won! Player Score = ${playerScore} & Computer Score = ${computerScore}`);
                     alert(`Computer won! Player Score = ${playerScore} & Computer Score = ${computerScore}`);
+                    
                     
                 }
                 else {
+                    console.log("Drawn game!");
                     alert("Drawn game!");
+
                     
                 }
 
